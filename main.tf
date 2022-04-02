@@ -6,7 +6,14 @@ terraform {
     }
   }
 }
-
+terraform {
+  backend "s3" {
+    bucket = "tf-remote-state-niau"
+    key    = "remotestate/terrafrom-playground/"
+    region = "eu-west-1"
+    profile="localAdmin"
+  }
+}
 provider "aws" {
     region=var.region
     profile=var.profile
